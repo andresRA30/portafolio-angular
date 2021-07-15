@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ProductosService } from '../../services/productos.service';
 
 @Component({
   selector: 'app-portafolio',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PortafolioComponent implements OnInit {
 
-  constructor() { }
+  constructor(public productosService: ProductosService, private router: Router) { }
 
   ngOnInit(): void {
   }
+  item(id: string) {
 
+    this.router.navigateByUrl(`/item/${id}`);
+  }
 }
